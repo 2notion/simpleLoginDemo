@@ -3,12 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -20,9 +24,17 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
+	<beans:bean id='viewResolver' class='org.springframework.web.servlet.view.InternalResourceViewResolver'>
+        <beans:property name='viewClass' value='org.springframework.web.servlet.view.JstlView' />
+        <beans:property name='prefix' value='/WEB-INF/views/' />
+        <beans:property name='suffix' value='.jsp' />
+        <beans:property name='order' value='1' />
+	</beans:bean>
+
 	<context:component-scan base-package="com.enotion.simpleLogin" />
-	
-	
-	
+
+<!-- 	<context:property-placeholder location="/WEB-INF/spring/message/*.properties" /> -->
+	<context:property-placeholder location="classpath:message/*.properties"/>
+
 </beans:beans>
