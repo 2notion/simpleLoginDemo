@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,maven,windows,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,maven,windows,java
 
@@ -145,4 +144,3 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
->>>>>>> refs/remotes/origin/master
